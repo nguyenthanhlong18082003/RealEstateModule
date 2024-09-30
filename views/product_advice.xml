@@ -99,7 +99,9 @@
                     <attribute name="invisible">is_owner</attribute>
                 </xpath>
                 
-
+                <notebook position="inside">
+                    <page  string="Thông tin "></page>
+                </notebook>
                 <notebook position="inside">
                     <page name="re_general_information" string="Thông tin chung">
                         <group>
@@ -189,6 +191,8 @@
                                 <field name="supp_wa" placeholder="Nhập đường dẫn" />
 
                                 <field name="supp_vb" placeholder="Nhập đường dẫn" />
+
+                                <field name="supp_ggmap" placeholder="Nhập đường dẫn"/> 
                             </group>
 
                         </group>

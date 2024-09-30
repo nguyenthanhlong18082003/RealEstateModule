@@ -46,12 +46,15 @@
         'views/product_menu.xml',
         'views/partner_view.xml',
         'views/request_view.xml',
+        'views/custom_duan.xml',
     ],
     'post_init_hook': 'post_init_hook',
     'assets': {
         'web.assets_frontend': [
             'RealEstateModule/static/src/snippets/s_website_form/000.js',
             'RealEstateModule/static/src/snippets/s_website_form/option.js',
+            'RealEstateModule/static/src/css/detail_product.css',
+            
         ],
         'web.assets_backend': [
             'RealEstateModule/static/src/xml/custom_contact_kanban.xml',

@@ -61,7 +61,7 @@ class ProductTemplateInherit(models.Model):
     balcony = fields.Integer(string="Số ban công")
     offer_price = fields.Float(string="Giá chào hợp đồng (Triệu VND)")
     close_price = fields.Float(string="Giá chốt (Triệu VND)")
-    direction_id = fields.Many2one("product.direction", string="Hướng nhà")
+    direction_id = fields.Many2one("product.direction", string="Hướng nhà") 
 
     product_type_id = fields.Many2one("product.type", string="Loại bất động sản")
 
@@ -92,6 +92,8 @@ class ProductTemplateInherit(models.Model):
     supp_vb = fields.Char(string="Viber")
 
     supp_ms = fields.Char(string="Messenger")
+
+    supp_ggmap = fields.Char(string="Google Map")
 
     btn_options = fields.Selection(
         [

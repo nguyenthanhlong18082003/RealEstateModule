@@ -1,0 +1,21 @@
+.custom-hr {
+    width: 50%;  /* Chiều dài của đường kẻ */
+    /* margin: auto;  Canh giữa */
+    border: 1px solid #efeded;  /* Tùy chỉnh độ dày và màu của đường kẻ */
+}
+
+
+.custom-hr-1 {
+    width: 20%;  /* Chiều dài của đường kẻ */
+    /* margin: auto;  Canh giữa */
+    border: 1px solid #efeded;  /* Tùy chỉnh độ dày và màu của đường kẻ */
+}
+
+
+#products_grid_before{
+    display: none !important;
+}
+
+#products_grid {
+    width: 100% !important;
+  }

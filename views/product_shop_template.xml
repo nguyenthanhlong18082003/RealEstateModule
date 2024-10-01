@@ -322,12 +322,17 @@
                                 <!-- <strong>Địa chỉ </strong> -->
                                 <i style="margin-right: 0.5rem; margin-left: 5.2rem;"></i>
                                 <h5>
-                                    <t t-esc="product.alley"/>
-                                    <t t-esc="product.street" />,
-                                    <t t-esc="product.ward_id.name"/>,
-                                    <t t-esc="product.district_id.name"/>,
-                                    <t t-esc="product.state_id.name"/>.
-                                </h5>
+                                    <img
+                                        src="/RealEstateModule/static/description/icon_detail_product/vitri.png"
+                                        alt="Product Icon"
+                                        class="img-dientichthucte"
+                                        style="width: 30px; height: 30px; " />
+                                    <t
+                                        t-esc="product.alley" />
+                                    <t t-esc="product.street" />, <t
+                                        t-esc="product.ward_id.name" />, <t
+                                        t-esc="product.district_id.name" />, <t
+                                        t-esc="product.state_id.name" />. </h5>
                             </span>
                         </div>
                     </div>
@@ -341,7 +346,7 @@
                             
                         </div>
                     </div> -->
-                    <div class="row mb-3 pb-3 row-cols-sm-1">
+                    <!-- <div class="row mb-3 pb-3 row-cols-sm-1">
 
                         <div class="col col-12 col-sm-12  mt-md-2">
                             <span style="color: red;">
@@ -369,7 +374,36 @@
                             <hr class="mt-1 custom-hr-1" />
                         </div>
 
+                    </div> -->
+                    <div class="row mb-3 pb-3 row-cols-sm-1 custom-product-details">
+                        <div class="col col-12 col-sm-12 mt-md-2">
+                            <span class="product-info">
+                                <strong>Mức giá:</strong>
+                                <t t-esc="product.list_price" class="price-value" />
+                            </span>
+                            <i class="fas fa-money-bill-wave price-icon"></i>
+                            <hr class="custom-hr" />
+                        </div>
+
+                        <div class="col col-12 col-sm-12 mt-md-2">
+                            <span class="product-info">
+                                <strong>Diện tích sổ:</strong>
+                                <t t-esc="product.acreage" class="acreage-value" />
+                            </span>
+                            <i class="fas fa-map-marked-alt acreage-icon"></i>
+                            <hr class="custom-hr" />
+                        </div>
+
+                        <div class="col col-12 col-sm-12 mt-md-2">
+                            <span class="product-info">
+                                <strong>Diện tích thực tế:</strong>
+                                <t t-esc="product.real_acreage" class="real-acreage-value" />
+                            </span>
+                            <i class="fas fa-ruler-combined real-acreage-icon"></i>
+                            <hr class="custom-hr" />
+                        </div>
                     </div>
+
                     <!-- <div class="row row-cols-sm-1">
                         <div class="col col-12 col-sm-12 col-lg-4 mt-md-2">
                             <span><strong>Mức giá: </strong> <t t-esc="product.list_price"/></span>
@@ -421,13 +455,13 @@
                             </div>
                         </div>
                     </t> -->
-                    <div class="row">
+                    <div class="row ">
                         <div class="col">
                             <span>
                                 <h4>Tổng quan <t t-esc="product.name" /></h4>
                             </span>
                             <br />
-                            <div class="container pb-3">
+                            <div class="container pb-3 ">
                                 <div class="row row-cols-1 row-cols-lg-2">
                                     <t t-if="product.acreage">
                                         <div class="col">
@@ -633,16 +667,17 @@
                                     </t>
                                     <t t-if="product.supp_ggmap">
                                         <div>
-                                            
+
                                             <a t-att-href="product.supp_ggmap" target="_blank">
                                                 <img
-                                                src="/RealEstateModule/static/description/icon_detail_product/map.png"
-                                                alt="Product Icon"
-                                                class="img-map"
-                                                style="width: 25px; height: 25px; " />
-                                            <i class="fa fa-solid fa-ruler"
-                                                style=" margin-left: 0.5rem;"></i>
-                                                Xem vị trí trên Google Maps</a>
+                                                    src="/RealEstateModule/static/description/icon_detail_product/map.png"
+                                                    alt="Product Icon"
+                                                    class="img-map"
+                                                    style="width: 25px; height: 25px; " />
+                                            <i
+                                                    class="fa fa-solid "
+                                                    style=" margin-left: 0.5rem;"></i> Xem vị trí
+                                                trên Google Maps</a>
                                             <hr class="mt-1 custom-hr" />
                                         </div>
                                     </t>
@@ -650,7 +685,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col">
                             <h4>
                                 <span>
@@ -693,7 +728,110 @@
                                 </div>
                             </div>
                         </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col ">
+                            <!-- <h4>
+                                <span>Thông tin chủ nhà</span>
+                            </h4>
+                            <br /> -->
+                            <!-- Nút để hiển thị/ẩn thông tin -->
+                            <!-- <button type="button"
+                                class="btn btn-primary "
+                                id="toggle-info-button">
+                                Hiển thị thông tin chủ nhà
+                            </button> -->
+                            <button type="button" class="btn btn-primary btn-lg fancy-button "
+                                id="toggle-info-button">
+                                Hiển thị thông tin chủ nhà
+                            </button>
+                            <br />
+                            <div class="container mt-3 opacity_display transition_display"
+                                id="owner-info">
+                                <div class="row row-cols-1 row-cols-lg-2">
+                                    <!-- Thông tin chủ nhà -->
+                                    <t t-if="product.sell_name">
+                                        <div>
+                                            <span>
+                                                <hr class="mt-1 custom-hr" />
+                                                <img
+                                                    src="/RealEstateModule/static/description/icon_detail_product/chunha.png"
+                                                    alt="Product Icon"
+                                                    class="img-chunha"
+                                                    style="width: 25px; height: 25px; "
+                                                />
+                                                <strong>Tên chủ nhà:</strong>
+                                                <t t-esc="product.sell_name" />
+                                                <hr class="mt-1 custom-hr" />
+                                            </span>
+                                        </div>
+                                    </t>
+                                    <t t-if="product.sell_phone">
+                                        <div>
+                                            <hr class="mt-1 custom-hr" />
+                                            <img
+                                                src="/RealEstateModule/static/description/icon_detail_product/sodienthoai.png"
+                                                alt="Product Icon"
+                                                class="img-sodienthoai"
+                                                style="width: 25px; height: 25px"
+                                            />
+                                            <span>
+                                                <strong>Số điện thoại</strong>
+                                            </span>
+                                            <t t-esc="product.sell_phone" />
+                                            <hr class="mt-1 custom-hr" />
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row pt-5">
+                        <div class="col">
+                            <h4>
+                                <span>Ảnh sổ đỏ</span>
+                            </h4>
+                            <br />
+                            <div class="container">
+                                <div class="row row-cols-1 row-cols-lg-2">
+                                    <!-- Kiểm tra nếu có ảnh -->
+                                    <t t-if="product.multiple_images">
+                                        <!-- Lặp qua từng ảnh trong field multiple_images -->
+                                        <t t-foreach="product.multiple_images" t-as="image">
+                                            <div class="col-12 col-lg-6 mb-3">
+                                                <span>
+                                                    <!-- Hiển thị ảnh -->
+                                                    <img t-att-src="'/web/image/%s' % image.id" alt="Product Image" class="img-sodonha" style="max-width: 100%; height: auto;" />
+                                                </span>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ">
+                            
+                            <button type="button" class="btn btn-primary btn-lg fancy-button-xemthem"
+                                id="btn_xemthem">
+                                Xem thêm
+                            </button>
+                            <br />
+                            <div class="container mt-3 opacity_display_xemthem transition_display_xemthem"
+                                id="xemthem-info">
+                                <div class=" ">
+                                    <h4>Hình ảnh chi tiết</h4>
+                                    <t t-if="product.additional_images_2">
+                                        <t t-foreach="product.additional_images_2" t-as="image">
+                                            <img t-att-src="'/web/image/%s' % image.id" alt="Hình ảnh chi tiết" class="img-chitietnha" />
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
         </xpath>

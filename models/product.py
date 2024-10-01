@@ -75,6 +75,24 @@ class ProductTemplateInherit(models.Model):
     floors = fields.Integer(string="Số Tầng")
     interior = fields.Text(string="Nội thất")
 
+    multiple_images = fields.Many2many('ir.attachment',string="Ảnh sổ đỏ",help="Chọn nhiều hình ảnh cho sản phẩm này",domain=[('mimetype', 'ilike', 'image')],)
+    additional_images_1 = fields.Many2many(
+        'ir.attachment', 
+        'product_template_ir_attachment_rel_additional_1',  # Bảng trung gian khác
+        'product_id', 'attachment_id', 
+        string="Hình ảnh họp đồng trích thưởng",
+        help="Chọn thêm hình ảnh họp đồng trích thưởng",
+        domain=[('mimetype', 'ilike', 'image')],
+    )
+    additional_images_2 = fields.Many2many(
+        'ir.attachment', 
+        'product_template_ir_attachment_rel_additional_2',  # Bảng trung gian khác nữa
+        'product_id', 'attachment_id', 
+        string="Hình ảnh chi tiết",
+        help="Chọn thêm hình ảnh chi tiết",
+        domain=[('mimetype', 'ilike', 'image')],
+    )
+
     district_id = fields.Many2one("res.country.district", string="District")
     ward_id = fields.Many2one("res.country.ward", string="Ward")
     sell_name = fields.Char(string="Tên chủ nhà")

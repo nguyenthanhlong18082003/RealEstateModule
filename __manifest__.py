@@ -54,6 +54,8 @@
             'RealEstateModule/static/src/snippets/s_website_form/000.js',
             'RealEstateModule/static/src/snippets/s_website_form/option.js',
             'RealEstateModule/static/src/css/detail_product.css',
+            'RealEstateModule/static/src/css/btn_anhien_detail.css',
+            'RealEstateModule/static/src/js/custom_btn_anhien.js',
             
         ],
         'web.assets_backend': [

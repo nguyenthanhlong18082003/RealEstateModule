@@ -1,21 +1,98 @@
 .custom-hr {
-    width: 50%;  /* Chiều dài của đường kẻ */
+    width: 50%;
+    /* Chiều dài của đường kẻ */
     /* margin: auto;  Canh giữa */
-    border: 1px solid #efeded;  /* Tùy chỉnh độ dày và màu của đường kẻ */
+    border: 1px solid #efeded;
+    /* Tùy chỉnh độ dày và màu của đường kẻ */
 }
 
 
 .custom-hr-1 {
-    width: 20%;  /* Chiều dài của đường kẻ */
+    width: 20%;
+    /* Chiều dài của đường kẻ */
     /* margin: auto;  Canh giữa */
-    border: 1px solid #efeded;  /* Tùy chỉnh độ dày và màu của đường kẻ */
+    border: 1px solid #efeded;
+    /* Tùy chỉnh độ dày và màu của đường kẻ */
 }
 
 
-#products_grid_before{
+#products_grid_before {
     display: none !important;
 }
 
 #products_grid {
     width: 100% !important;
-  }
+}
+
+
+
+
+
+
+.custom-product-details {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.product-info {
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 1rem;
+    color: #000;
+}
+
+.product-info strong {
+    color: #007bff;
+    /* Màu xanh nổi bật cho tiêu đề */
+}
+
+/* Thêm biểu tượng với style chuyên nghiệp */
+.price-icon,
+.acreage-icon,
+.real-acreage-icon {
+    font-size: 22px;
+    color: #28a745;
+    margin-left: 0.5rem;
+}
+
+/* Tùy chỉnh giá trị */
+.price-value,
+.acreage-value,
+.real-acreage-value {
+    font-weight: bold;
+    margin-left: 1rem;
+    color: #dc3545;
+    /* Màu đỏ nổi bật cho giá trị */
+}
+
+/* Dòng phân cách */
+.custom-hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Responsive, đảm bảo hiển thị tốt trên mobile */
+@media (max-width: 576px) {
+    .product-info {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .price-icon,
+    .acreage-icon,
+    .real-acreage-icon {
+        display: none;
+        /* Ẩn icon khi trên mobile để gọn gàng hơn */
+    }
+}
+
+.img-chitietnha{
+    width: 300px; /* Chỉnh chiều rộng mong muốn */
+    height: 200px; /* Chỉnh chiều cao mong muốn */
+    object-fit: cover; /* Đảm bảo hình ảnh được cắt vừa khung */
+    border-radius: 10px; 
+    margin-bottom: 20px;
+}
+

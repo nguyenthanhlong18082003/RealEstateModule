@@ -9,10 +9,10 @@
                 if record:
                 new_product = env['product.template'].duplicate_product(record.id)
                 action = {
-                    "type": "ir.actions.act_window",
-                    "view_mode": "form",
-                    "res_model": record._name,
-                    "res_id": new_product.id,
+                "type": "ir.actions.act_window",
+                "view_mode": "form",
+                "res_model": record._name,
+                "res_id": new_product.id,
                 }
             </field>
         </record>
@@ -51,12 +51,16 @@
                         string="Sản phẩm đầu chủ" class="btn-primary" invisible="is_owner" />
                 </xpath>
                 <xpath expr="//header" position="inside">
-                    <widget name="web_ribbon" title="Có sẵn" bg_color="bg-success" invisible="pr_status != 'sel_1'" />
+                    <widget name="web_ribbon" title="Có sẵn" bg_color="bg-success"
+                        invisible="pr_status != 'sel_1'" />
                     <widget
-                        name="web_ribbon" title="Đã đặt cọc" bg_color="text-bg-warning" invisible="pr_status != 'sel_2'"/>
+                        name="web_ribbon" title="Đã đặt cọc" bg_color="text-bg-warning"
+                        invisible="pr_status != 'sel_2'" />
                     <widget
-                        name="web_ribbon" title="Đã bán" bg_color="text-bg-danger" invisible="pr_status != 'sel_3'"/>
-                    <button name="%(dup_product)d" string="Tạo sản phẩm đầu khách" type="action" class="oe_highlight" invisible="not is_owner"/>
+                        name="web_ribbon" title="Đã bán" bg_color="text-bg-danger"
+                        invisible="pr_status != 'sel_3'" />
+                    <button name="%(dup_product)d" string="Tạo sản phẩm đầu khách" type="action"
+                        class="oe_highlight" invisible="not is_owner" />
                 </xpath>
 
                 <xpath expr="//div[@name='options']" position="inside">
@@ -85,7 +89,7 @@
                     <attribute name="class">d-none</attribute>
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                
+
                 <xpath expr="//page[@name='sales']" position="attributes">
                     <attribute name="class">d-none</attribute>
                     <attribute name="invisible">1</attribute>
@@ -98,9 +102,9 @@
                 <xpath expr="//page[@name='description_block']" position="attributes">
                     <attribute name="invisible">is_owner</attribute>
                 </xpath>
-                
+
                 <notebook position="inside">
-                    <page  string="Thông tin "></page>
+                    <page string="Thông tin "></page>
                 </notebook>
                 <notebook position="inside">
                     <page name="re_general_information" string="Thông tin chung">
@@ -138,7 +142,8 @@
                         </group>
                         <group>
                             <group string="Thông số chi tiết">
-                                <field name="product_type_id" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" >
+                                <field name="product_type_id"
+                                    options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
                                     <tree>
                                         <field name="name" />
                                         <field name="image" widget="image" />
@@ -156,13 +161,40 @@
                                 <field name="nums_bath" />
                                 <field name="way_in" />
                                 <field name="balcony" />
-                                <field name="direction_id" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" >
+                                <field name="direction_id"
+                                    options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
                                     <tree>
                                         <field name="name" />
                                         <field name="image" widget="image" />
                                     </tree>
                                 </field>
                             </group>
+                        </group>
+                        <group>
+                            <field name="multiple_images" widget="many2many_binary"
+                                options="{'multiple': true}">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="mimetype" />
+                                    <field name="datas" widget="image" options="{'image_size':
+                                [1000, 1000]}" />
+                                </tree>
+                            </field>
+                            <field name="additional_images_1" widget="many2many_binary" options="{'multiple': true}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="mimetype"/>
+                                    <field name="datas" widget="image" options="{'image_size': [1000, 1000]}"/>
+                                </tree>
+                            </field>
+                            
+                            <field name="additional_images_2" widget="many2many_binary" options="{'multiple': true}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="mimetype"/>
+                                    <field name="datas" widget="image" options="{'image_size': [1000, 1000]}"/>
+                                </tree>
+                            </field>
                         </group>
                     </page>
                     <page name="re_sales" string="Bán">
@@ -192,7 +224,7 @@
 
                                 <field name="supp_vb" placeholder="Nhập đường dẫn" />
 
-                                <field name="supp_ggmap" placeholder="Nhập đường dẫn"/> 
+                                <field name="supp_ggmap" placeholder="Nhập đường dẫn" />
                             </group>
 
                         </group>
@@ -268,32 +300,33 @@
                         </field>
                     </page>
 
-                    
+
                     <page name="access_users" string="Danh sách liên hệ" invisible="not is_owner">
-                        <field name="child_partner_ids" mode="kanban" add-label="Thêm một đầu khách" options="{'no_create_edit': True}">
+                        <field name="child_partner_ids" mode="kanban" add-label="Thêm một đầu khách"
+                            options="{'no_create_edit': True}">
                             <kanban offset="0" limit="4">
-                                <field name="id"/>
-                                <field name="color"/>
-                                <field name="name"/>
-                                <field name="title"/>
-                                <field name="type"/>
-                                <field name="email"/>
-                                <field name="parent_id"/>
-                                <field name="is_company"/>
-                                <field name="function"/>
-                                <field name="phone"/>
-                                <field name="street"/>
-                                <field name="street2"/>
-                                <field name="zip"/>
-                                <field name="city"/>
-                                <field name="country_id"/>
-                                <field name="mobile"/>
-                                <field name="state_id"/>
-                                <field name="image_128"/>
-                                <field name="avatar_128"/>
-                                <field name="lang"/>
-                                <field name="comment"/>
-                                <field name="display_name"/>
+                                <field name="id" />
+                                <field name="color" />
+                                <field name="name" />
+                                <field name="title" />
+                                <field name="type" />
+                                <field name="email" />
+                                <field name="parent_id" />
+                                <field name="is_company" />
+                                <field name="function" />
+                                <field name="phone" />
+                                <field name="street" />
+                                <field name="street2" />
+                                <field name="zip" />
+                                <field name="city" />
+                                <field name="country_id" />
+                                <field name="mobile" />
+                                <field name="state_id" />
+                                <field name="image_128" />
+                                <field name="avatar_128" />
+                                <field name="lang" />
+                                <field name="comment" />
+                                <field name="display_name" />
                                 <templates>
                                     <t t-name="kanban-box">
                                         <t t-set="color"
@@ -411,23 +444,31 @@
                             </form>
                         </field>
                     </page>
-                    <page name="related_product" string="Danh sách bài đăng" invisible="not is_owner">
+                    <page name="related_product" string="Danh sách bài đăng"
+                        invisible="not is_owner">
                         <div class="container-fluid">
-                            <field name="child_product_ids" widget="one2many_lines" invisible="not is_owner">
+                            <field name="child_product_ids" widget="one2many_lines"
+                                invisible="not is_owner">
                                 <tree>
                                     <field name="name" />
-                                    <field name="create_uid" readonly="1" widget="many2one_avatar_user" string="Đầu khách" />
+                                    <field name="create_uid" readonly="1"
+                                        widget="many2one_avatar_user" string="Đầu khách" />
                                     <field name="create_date" />
-                                    <button name="action_publish" string="Công khai" type="object" icon="fa-check"/>
-                                    <button name="unlink" string="Xóa" type="object" icon="fa-trash-o" confirm="Bạn có chắc chắn muốn xóa dữ liệu này?"/>
-                                    <button name="toggle_active" string="Archive" type="object" icon="fa-archive" confirm="Bạn có chắc chắn muốn lưu trữ dữ liệu này?"/>
+                                    <button name="action_publish" string="Công khai" type="object"
+                                        icon="fa-check" />
+                                    <button name="unlink" string="Xóa" type="object"
+                                        icon="fa-trash-o"
+                                        confirm="Bạn có chắc chắn muốn xóa dữ liệu này?" />
+                                    <button name="toggle_active" string="Archive" type="object"
+                                        icon="fa-archive"
+                                        confirm="Bạn có chắc chắn muốn lưu trữ dữ liệu này?" />
                                 </tree>
                             </field>
                         </div>
                     </page>
 
                     <page name="sharing_list" string="Sharing"></page>
-                    
+
                     <page name="opp_page" string="Biểu mẫu liên hệ" invisible="is_owner">
                         <group name="" string="Liên hệ">
                             <field name="activity_user_id" string="Người quản lý sản phẩm" />
